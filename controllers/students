@@ -1,0 +1,74 @@
+const fs=require('fs');
+const path = require('path');
+
+let students=[
+    {firstName:"chaim",lLastName:"levi",id:"4561",grade:"5",age:"15",evg:"10"},
+    {firstName:"yosi",lLastName:"coen",id:"8524",grade:"4",age:"16",evg:"99"},
+    {firstName:"chaim",lLastName:"charar",id:"8524",grade:"4",age:"17",evg:"17"},
+    {firstName:"shalom",lLastName:"chazan",id:"9857",grade:"4",age:"20",evg:"50"},
+
+]
+
+exports.getAllStudent=(req,res)=>{
+    res.send(students)
+}
+
+exports.getEvegeHight=(req,res)=>{
+    const student=students.find(stu=>Number(stu.evg)===100)
+    if(!student){
+        res.status(404).send("no have evg 100")
+    }
+    console.log("lkjh")
+    res.send(student);
+}
+
+exports.getByName=(req,res)=>{
+    const reqName = req.params.name;
+    const result = students.filter(stu => stu.firstName === reqName);
+
+    if (result.length===0) {
+        return res.status(404).send("this student not found");
+    }
+
+    res.send(result);
+}
+
+exports.addStudent=(req,res)=>{
+console.log(req.body);
+students.push(req.body);
+res.send(students);
+}
+
+exports.RemoveStudent=(req,res)=>{
+    const {Id}=req.params;
+     const newList=students.filter(x=>x.id!=Id)
+     students=newList;
+     res.send(students)
+}  
+exports.UpdateEvg=(req,res)=>{
+    const {Id,Evg}=req.params
+    const st=students.find(x=>x.id===Id)
+    if(st){
+        st.evg=Evg
+    }
+    res.send(students)
+}
+
+exports.CreateFile=(req,res)=>{
+    fs.writeFile('./StudentFiles/students.txt',JSON.stringify(students,null,2),(err,data)=> {
+        if(err){
+            res.send(err)
+        }
+        res.send(data)
+    })
+}
+
+exports.ReturnFile = (req, res) => {
+    const theFile = path.join(__dirname, '../StudentFiles/students.txt');
+    fs.readFile(theFile, "utf8", (err, data) => {
+        if (err) {
+            return res.status(400).json({ msg: "not Found" });
+        }
+        res.send(data);
+    });
+}

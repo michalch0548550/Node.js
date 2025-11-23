@@ -1,0 +1,15 @@
+
+const express=require('express')
+const router=express.Router()
+const{getAllStudent,getByName,addStudent,getEvegeHight,RemoveStudent,UpdateEvg,CreateFile,ReturnFile}
+=require('../controllers/students')
+
+router.get('/',getAllStudent)
+// router.get('/:name',getByName)
+router.post('/',addStudent)
+router.get('/hightEvg',getEvegeHight)
+router.delete('/:Id',RemoveStudent)
+router.put('/:Id/:Evg',UpdateEvg)
+router.get('/MyFiles',CreateFile);
+router.get('/returnMyFiles',ReturnFile);
+module.exports = router

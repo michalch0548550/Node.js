@@ -1,0 +1,34 @@
+[
+  {
+    "firstName": "chaim",
+    "lLastName": "levi",
+    "id": "4561",
+    "grade": "5",
+    "age": "15",
+    "evg": "10"
+  },
+  {
+    "firstName": "yosi",
+    "lLastName": "coen",
+    "id": "8524",
+    "grade": "4",
+    "age": "16",
+    "evg": "99"
+  },
+  {
+    "firstName": "chaim",
+    "lLastName": "charar",
+    "id": "8524",
+    "grade": "4",
+    "age": "17",
+    "evg": "17"
+  },
+  {
+    "firstName": "shalom",
+    "lLastName": "chazan",
+    "id": "9857",
+    "grade": "4",
+    "age": "20",
+    "evg": "50"
+  }
+]
