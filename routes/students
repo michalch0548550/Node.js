@@ -1,0 +1,10 @@
+
+const express=require('express')
+const router=express.Router()
+const{getAllStudent,getByName,addStudent,getEvegeHight}=require('../controllers/students')
+
+router.get('/',getAllStudent)
+// router.get('/:name',getByName)
+router.post('/',addStudent)
+router.get('/hightEvg',getEvegeHight)
+module.exports = router

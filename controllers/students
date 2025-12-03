@@ -1,0 +1,36 @@
+const students=[
+    {firstName:"chaim",lLastName:"levi",id:"4561",grade:"5",age:"15",evg:"10"},
+    {firstName:"yosi",lLastName:"coen",id:"8524",grade:"4",age:"16",evg:"99"},
+    {firstName:"chaim",lLastName:"charar",id:"8524",grade:"4",age:"17",evg:"17"},
+]
+
+exports.getAllStudent=(req,res)=>{
+    res.send(students)
+}
+
+exports.getEvegeHight=(req,res)=>{
+    const student=students.find(stu=>Number(stu.evg)===100)
+    if(!student){
+        res.status(404).send("no have evg 100")
+    }
+    console.log("lkjh")
+    res.send(student);
+}
+
+exports.getByName=(req,res)=>{
+    const reqName = req.params.name;
+    const result = students.filter(stu => stu.firstName === reqName);
+
+    if (result.length===0) {
+        return res.status(404).send("this student not found");
+    }
+
+    res.send(result);
+}
+
+exports.addStudent=(req,res)=>{
+console.log(req.body);
+students.push(req.body);
+res.send(students);
+}
+
