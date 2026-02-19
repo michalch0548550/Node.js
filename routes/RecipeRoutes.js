@@ -1,7 +1,18 @@
 const express=require('express')
 const router=express.Router()
-const{updateRecipe,delateRecipe,addRecipe}=require('../controllers/recipeController')
-router.put('/',updateRecipe)
+const{updateRecipe,deleteRecipe,addRecipe}=require('../controllers/recipeController')
+router.put('/:id',updateRecipe)
 router.post('/',addRecipe)
-router.delete('/',delateRecipe)
+router.delete('/:id',deleteRecipe)
 module.exports=router
+
+
+
+
+
+
+
+
+
+
+
