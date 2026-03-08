@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose=require('mongoose')
 require('dotenv').config()
 const PORT=process.env.PORT
-const app = express()ען
+const app = express()
 app.use(express.json())
 
 const {ToConnect}=require('./config/db');

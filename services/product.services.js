@@ -6,7 +6,7 @@ const category=require('../models/Category');
 async function updateDataOfProduct(id,body){ 
      await product.findOneAndUpdate({ _id: id }, body, { new: true })
 }
-ען
+
 // //deleteProductTotal
 // async function deleteProductByIdTotal(id){
 //     await product.findOneAndDelete(id)
