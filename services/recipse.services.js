@@ -1,7 +1,7 @@
 const recipe=require('../models/Recipe.js')
 async function getRecipes(){
     return await recipe.find()
-}   
+}  
 async function getRecipeById(id){
     return await recipe.findOne({ id: id });
 }
@@ -18,3 +18,4 @@ async function createRecipe(body){
 
 module.exports=
 {getRecipes,getRecipeById,updateDataOfRecipe,deleteRecipeById,createRecipe}
+

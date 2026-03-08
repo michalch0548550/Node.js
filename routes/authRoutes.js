@@ -1,6 +1,13 @@
 const exprees=require('express')
 const router=exprees.Router()
-const{LogIn, SinIn}=require('../controllers/authController')
+const{LogIn, SignUp}=require('../controllers/authController')
 router.post('/login',LogIn)
-router.post('/SinIn',SinIn)
+router.post('/SignUp',SignUp)
 module.exports=router
+
+
+
+
+
+
+

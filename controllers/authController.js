@@ -1,7 +1,7 @@
 const jwt= require('jsonwebtoken')
 const User = require('../models/User') 
-//הרשמה
-async function LogIn(req, res) {
+
+async function SignUp(req, res) {
     try {
         const { id, name } = req.body
         if (!id || !name) {
@@ -14,8 +14,8 @@ async function LogIn(req, res) {
     }  
     
 }
-//כניסה
-async function SinIn(req, res) {
+
+async function LogIn(req, res) {
     try {   
         const { id } = req.body
         if (!id) {
@@ -35,17 +35,5 @@ async function SinIn(req, res) {
         res.status(500).send(`Error: ${ err.message }`)
     }           
 }
-module.exports = { LogIn, SinIn }
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = { LogIn, SignUp }
 
